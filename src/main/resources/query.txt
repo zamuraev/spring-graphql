@@ -1,0 +1,33 @@
+http://localhost:8080/graphiql
+http://localhost:8080/voyager
+
+query{
+  helloWorld
+}
+
+query{
+  geetingMessage(firstName: "Noel", secondName: "Gallagher")
+}
+
+query{
+  message {
+ id
+ text
+  } }
+
+query{
+rollDice
+}
+
+query{
+authors {
+  id
+  name
+  email
+  posts {
+    id
+    title
+     author {
+      id
+      email
+    }  } } }

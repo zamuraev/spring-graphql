@@ -6,31 +6,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import javax.persistence.*;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "post")
+@Table(name = "comment")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Post {
+public class Comment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @Type(type = "uuid-char")
     private UUID id;
-    private String title;
-    private String category;
-    private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
+    private String text;
+
+    @ManyToOne
+    @JoinColumn(name="author_id")
     private Author author;
 
+    @ManyToOne
+    @JoinColumn(name="post_id")
+    private Post post;
 
-    @OneToMany(mappedBy = "post")
-    private Set<Comment> comments;
 
 
 }

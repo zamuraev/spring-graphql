@@ -1,4 +1,4 @@
-package com.zamuraev.resolver;
+package com.zamuraev.resolver.author;
 
 import com.zamuraev.dto.AuthorDto;
 import com.zamuraev.service.AuthorService;

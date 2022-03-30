@@ -8,4 +8,4 @@ insert into post(id, title, description, category, author_id) values('883b8a41-8
 insert into post(id, title, description, category, author_id) values('6c80180c-51de-4f56-81c4-da0a8fbfa792', 'REACT','REACT course', 'IT', '44b0ed8f-351c-4368-a472-cadd17444947');
 insert into post(id, title, description, category, author_id) values('7e759e91-a0d4-469b-ad81-50ba3969d211', 'JS','JS course', 'IT', '44b0ed8f-351c-4368-a472-cadd17444947');
 
---insert into comment(id, text, author_id, post_id) values ('880dc5c4-ca56-4eef-90e8-fd6703639ecf', 'awesome comment', '44b0ed8f-351c-4368-a472-cadd17444947', '6c80180c-51de-4f56-81c4-da0a8fbfa792');
+insert into comment(id, text, author_id, post_id) values ('880dc5c4-ca56-4eef-90e8-fd6703639ecf', 'awesome comment', '44b0ed8f-351c-4368-a472-cadd17444947', '6c80180c-51de-4f56-81c4-da0a8fbfa792');

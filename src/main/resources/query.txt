@@ -1,5 +1,9 @@
+LINKS
+
 http://localhost:8080/graphiql
 http://localhost:8080/voyager
+
+QUERY
 
 query{
   helloWorld
@@ -31,3 +35,171 @@ authors {
       id
       email
     }  } } }
+
+query{
+authors {
+  id
+  name
+  postCount
+} }
+
+query{
+recentPosts(count:1, offset:1) {
+  id
+  title
+} }
+
+query {
+    authors{
+      id
+      postCount
+      comments(first: 1) {
+        id
+        text
+      }    }}
+
+query{
+recentPosts(count:1, offset:1) {
+  id
+  title
+    comments(first: 1) {
+        id
+      }} }
+
+query{
+recentPosts(count:5, offset:0) {
+  id
+  title
+  description
+  category
+  author {
+    id
+  }
+    comments(first: 1) {
+        id
+    text
+      }} }
+
+query{
+  comments(count:5, offset:0){
+    id
+    text
+  }}
+
+query{
+  comments(count:5, offset:0){
+    id
+    text
+    post {
+      id
+    }
+    author {
+      id
+    }}}
+
+ query {
+     customer(phoneNumber:"+1 504 595 1378", email:"email@email.com"){
+     birthDay
+     workStartTime
+     bornAt
+   }
+ }
+
+query{
+recentPosts(count:10, offset:0) {
+  id
+  title
+    author {
+        id
+      name
+	}
+   comments(first: 10) {
+        id
+    text
+		}
+}
+}
+
+MUTATION
+
+mutation{
+createAuthor(author:{
+  name: "Amal"
+  email:"amal@gmail.com"
+})}
+
+mutation{
+createPost(post:{
+  title: "New Post Title"
+  description:"Some post description"
+  category: "IT"
+  authorId: "023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+}) }
+
+mutation{
+createComment(comment:{
+  text: "New Comment"
+  postId:"7e759e91-a0d4-469b-ad81-50ba3969d211"
+  authorId:"023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+}) }
+
+mutation{
+createMessage(id:"", title:"", luckyNumbers:2, value:0)
+}
+
+SUBSCRIPTION
+--post
+
+mutation{
+createPost(post:{
+  title: "test"
+  description:"as"
+  category: "IT"
+  authorId: "44b0ed8f-351c-4368-a472-cadd17444947"
+}) }
+
+subscription{
+recentPost{
+id
+title
+description
+category
+author{
+id
+name
+} } }
+
+subscription{
+recentPostByAuthor(authorId:"44b0ed8f-351c-4368-a472-cadd17444947"){
+id
+title
+author{
+id
+name
+} } }
+
+--comment
+mutation{
+createComment(comment:{
+  text: "New Comment"
+  postId:"7e759e91-a0d4-469b-ad81-50ba3969d211"
+  authorId:"023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+})}
+
+subscription{
+recentCommentByPost(postId:"7e759e91-a0d4-469b-ad81-50ba3969d211"){
+id
+text
+post{
+id
+}}}
+
+EXCEPTION HANDLER
+mutation{
+createComment(comment:{
+  text: "New Comment"
+  postId:"023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+  authorId:"023946ee-6173-4d49-8bac-c0b9e4a7ba88"
+})}
+
+
